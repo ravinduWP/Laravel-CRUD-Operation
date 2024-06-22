@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//seting route for navigate to relevent pages
 Route::get('/product',[ProductController::class,'index'])->name('product.index');
+Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
+
