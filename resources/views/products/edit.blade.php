@@ -6,30 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>create a product</h2>
+    <h2>edit a product</h2>
 
 
-    <form method="post" action="{{route('product.store')}}">
+    <form method="post" action="{{route('product.update',['product' => $product])}}">
         @csrf
-        @method('post')
+        @method('put')
         <div>
             <label>Name :</label>
-            <input type="text" name="name" placeholder="name" />
+            <input type="text" name="name" placeholder="name" value="{{$product->name}}" />
         </div>
         <div>
             <label>Qty :</label>
-            <input type="text" name="qty" placeholder="qty" />
+            <input type="text" name="qty" placeholder="qty" value="{{$product->qty}}"/>
         </div>
         <div>
             <label>Price :</label>
-            <input type="text" name="price" placeholder="price" />
+            <input type="text" name="price" placeholder="price" value="{{$product->price}}"/>
         </div>
         <div>
             <label>Description :</label>
-            <input type="text" name="description" placeholder="description" />
+            <input type="text" name="description" placeholder="description" value="{{$product->description}}"/>
         </div>
         <div>
-            <input type="submit" name="submit" value="create product">
+            <input type="submit" name="submit" value="Update">
             <input type="reset" name="clear" value="Clear">
         </div>
     </form>
